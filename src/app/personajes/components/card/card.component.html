@@ -1,20 +1,14 @@
 <mat-card>
     <mat-card-header>
         <mat-card-title> {{hero.name}} </mat-card-title>
-        <mat-card-subtitle> {{hero.otherNames}} </mat-card-subtitle>
+        <mat-card-subtitle> {{hero.otherNames}} </mat-card-subtitle>        
     </mat-card-header>
 
     <!-- IMAGEN -->    
-    <img mat-card-image [src]="hero | heroImage" [alt]="hero.name">
-
-    <mat-card-content class="mt-2">
-        <h4> {{hero.id}} </h4>
-        <p>
-            <strong>Libro:</strong> {{hero.book}}
-            <br>
-            <mat-chip *ngFor="let name of hero.titles.split(',') | slice: 0:2">{{name}}</mat-chip>
-        </p>
-    </mat-card-content>
+    <img mat-card-image [src]="hero | heroImage" [alt]="hero.name" [routerLink]="['/personajes', hero.id]" class="imagen">
+    <p style="text-align: center;">
+        <strong>Libro:</strong> {{hero.book}}            
+    </p>
 
     <mat-divider></mat-divider>
 

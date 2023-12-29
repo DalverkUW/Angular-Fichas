@@ -95,4 +95,8 @@ export class NewHeroPageComponent implements OnInit {
     });
   }
 
+  regresar(){
+    this.router.navigateByUrl("personajes/list")
+  }
+
 }

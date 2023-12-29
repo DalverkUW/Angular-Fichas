@@ -59,12 +59,14 @@
                         <mat-icon>save</mat-icon>
                         Guardar
                     </button>
-                </div>
-
+                </div>                
             </mat-card-content>
+            <button mat-flat-button color="warn" (click)="regresar()">
+                Regresar
+            </button>
         </mat-card>
     </div>
-
+    
     <div class="col-12 sm:col-6">
         <mat-card>
             <img mat-card-image [src]="CurrentHero | heroImage" alt="imagen del héroe">

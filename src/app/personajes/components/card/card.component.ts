@@ -4,7 +4,7 @@ import { Hero } from 'src/interfaces/hero.interface';
 @Component({
   selector: 'personajes-card',
   templateUrl: './card.component.html',
-  styles: [
+  styles: ['.imagen:hover{ cursor: pointer;} .imagen{border-radius: 5px}'  
   ]
 })
 export class CardComponent implements OnInit {

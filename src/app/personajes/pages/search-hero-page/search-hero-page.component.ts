@@ -3,6 +3,7 @@ import { Hero } from 'src/interfaces/hero.interface';
 import { HeroeService } from '../../services/heroes.service';
 import { FormControl } from '@angular/forms';
 import { MatAutocompleteSelectedEvent } from '@angular/material/autocomplete';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-search-hero-page',
@@ -15,7 +16,7 @@ export class SearchHeroPageComponent implements OnInit {
   heroes: Hero[] = [];
   selectedHero?: Hero
 
-  constructor(private HeroService: HeroeService) { }
+  constructor(private HeroService: HeroeService, private router: Router) { }
 
   ngOnInit(): void {
   }
@@ -35,8 +36,9 @@ export class SearchHeroPageComponent implements OnInit {
 
     const hero: Hero = event.option.value;
     this.searchInput.setValue(hero.name);
-
     this.selectedHero = hero;    
+    this.router.navigate(['/personajes', hero.id]);    //Navega al héroe seleccionado
+    
 
   }
 

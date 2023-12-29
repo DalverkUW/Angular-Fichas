@@ -11,29 +11,295 @@
     <mat-card class="col=6 sm:col-3">
         <mat-card-header>
             <mat-card-title> {{hero.name}} </mat-card-title>
-            <mat-card-subtitle>{{hero.otherNames}}</mat-card-subtitle>
+            <mat-card-subtitle>Libro: {{hero.book}}</mat-card-subtitle>
         </mat-card-header>
 
-        <img [src]="hero | heroImage" [alt]="hero.name" mat-card-xl-image >
+        <!-- Imagen -->
+        <img [src]="hero | heroImage" [alt]="hero.name" mat-card-xl-image> 
+
+        <!-- Descripción física (MATERIAL) -->
+        <!-- <mat-card-content>
+            <mat-list>    
+                <mat-card-header>
+                    <mat-card-title> Descripción física</mat-card-title>
+                </mat-card-header>            
+                <mat-list-item><strong>Nombre</strong>: {{ hero.name }}</mat-list-item>
+                <mat-list-item><strong>Otros nombres</strong>:  {{ hero.otherNames }} </mat-list-item>
+                <mat-list-item><strong>Título(s)</strong>: {{hero.titles}} </mat-list-item>  
+                <mat-list-item><strong>Color de ojos</strong>: {{hero.eyes}} </mat-list-item>
+                <mat-list-item><strong>Color de pelo</strong>: {{hero.hair}} </mat-list-item>
+                <mat-list-item><strong>Color de piel</strong>: {{hero.skin}} </mat-list-item>
+                <mat-list-item><strong>Altura</strong>: {{hero.height}} </mat-list-item>
+                <mat-list-item><strong>Rasgos distintivos</strong>: {{hero.distintive}}</mat-list-item>                                                                
+            </mat-list>
+        </mat-card-content> -->
+        
+        <!-- Descripción física (HTML) -->
+        <table>
+            <tbody>
+                <th style="border:none; text-align: left; padding: 0;">
+                    Nombre: 
+                </th>
+                <td style="border:none; text-align: left;">
+                    <ul class="fList">
+                        <li> {{hero.name}} </li>
+                    </ul>
+                </td>  
+            </tbody>
+            <tbody>
+                <th style="border:none; text-align: left; padding: 0;">
+                    Otros nombres: 
+                </th>
+                <td style="border:none; text-align: left;">
+                    <ul class="fList">
+                        <li *ngFor="let oname of hero.otherNames"> {{oname}} </li>
+                    </ul>
+                </td>  
+            </tbody>           
+            <tbody>            
+                <th style="border:none; text-align: left; padding: 0;">
+                    Titulos: 
+                </th>
+                <td style="border:none; text-align: left;">
+                    <ul class="fList">
+                        <li *ngFor="let title of hero.titles"> {{title}} </li>
+                    </ul>
+                </td>                            
+            </tbody>
+            <tbody>
+                <th style="border:none; text-align: left; padding: 0;">
+                    Color de ojos: 
+                </th>
+                <td style="border:none; text-align: left;">
+                    <ul class="fList">
+                        <li> {{hero.eyes}} </li>
+                    </ul>
+                </td>  
+            </tbody>
+            <tbody>
+                <th style="border:none; text-align: left; padding: 0;">
+                    Color de pelo: 
+                </th>
+                <td style="border:none; text-align: left;">
+                    <ul class="fList">
+                        <li> {{hero.hair}} </li>
+                    </ul>
+                </td>  
+            </tbody>
+            <tbody>
+                <th style="border:none; text-align: left; padding: 0;">
+                    Color de piel: 
+                </th>
+                <td style="border:none; text-align: left;">
+                    <ul class="fList">
+                        <li> {{hero.skin}} </li>
+                    </ul>
+                </td>  
+            </tbody>
+            <tbody>
+                <th style="border:none; text-align: left; padding: 0;">
+                    Altura: 
+                </th>
+                <td style="border:none; text-align: left;">
+                    <ul class="fList">
+                        <li> {{hero.height}} </li>
+                    </ul>
+                </td>  
+            </tbody>
+            <tbody>
+                <th style="border:none; text-align: left; padding: 0;">
+                    Rasgos distintivos: 
+                </th>
+                <td style="border:none; text-align: left;">
+                    <ul class="fList">
+                        <li *ngFor="let dist of hero.distintive"> {{dist}} </li>
+                    </ul>
+                </td>  
+            </tbody>
+            
+        </table>
     </mat-card>
 
     <mat-card class="col=12 sm:col-9">
-        <mat-card-header>
-            <mat-card-title> Información</mat-card-title>
-            <mat-card-subtitle>{{hero.name}}</mat-card-subtitle>
-        </mat-card-header>
 
         <mat-card-content>
-            <mat-list>
-                <mat-list-item> {{hero.book}} </mat-list-item>
-                <mat-list-item> {{hero.race}} </mat-list-item>
-                <mat-list-item> {{hero.gender}} </mat-list-item>
-                <mat-list-item> {{hero.resume}} </mat-list-item>
-                <!-- {{hero.descrpcion}}  -->
+
+            <!-- Información Personal -->
+            <mat-list>                
+            <mat-card-header>
+                <mat-card-title> Información Personal</mat-card-title>
+            </mat-card-header>
+            <hr>
+                <mat-list-item><strong>Fecha de nacimiento:</strong>&nbsp;{{hero.bornDay}}/{{hero.bornMonth}}/{{hero.bornYear}}, {{hero.bornAge}} </mat-list-item>
+                <mat-list-item><strong>Origen:</strong>&nbsp;{{hero.bornCity}}, {{hero.bornRegion}}, {{hero.bornKingdom}} </mat-list-item>
+                <mat-list-item><strong>Especie:</strong>&nbsp;{{hero.species}} </mat-list-item>
+                <mat-list-item><strong>Raza:</strong>&nbsp;{{hero.race}} </mat-list-item>
+                <mat-list-item><strong>Género:</strong>&nbsp;{{hero.gender}} </mat-list-item> 
+                <mat-list-item><strong>Ocupación:</strong>&nbsp;{{hero.profession}}</mat-list-item>                               
+                <mat-list-item><strong>Animal guardián:</strong>&nbsp;{{hero.animal}}</mat-list-item>                               
             </mat-list>
+            <br>
+
+            <!-- Descripcion -->            
+            <mat-list>
+                <mat-card-header>
+                    <mat-card-title>Descripcion</mat-card-title>
+                </mat-card-header>
+                <hr>
+                <mat-list-item>{{hero.resume}}</mat-list-item>
+            </mat-list>
+            <br>
+
+            <!-- Familiar -->
+            <mat-list>
+                <mat-card-header>
+                    <mat-card-title>Información Familiar</mat-card-title>
+                </mat-card-header>
+                <hr>
+                <mat-list-item><strong>Padre:</strong>&nbsp;{{hero.father}}</mat-list-item>
+                <mat-list-item><strong>Madre:</strong>&nbsp;{{hero.mother}} </mat-list-item>
+                <mat-list-item><strong>Hermanos:</strong>&nbsp;{{hero.brothers}} </mat-list-item> 
+                <!-- famName?: string;      //Nombre de familiar nuevo
+                famRelation?: string;  //Que relacion familiar tiene para el pj? -->
+            </mat-list>
+            <br>
+
+             <!-- Relaciones -->
+             <mat-list>
+                <mat-card-header>
+                    <mat-card-title>Relaciones</mat-card-title>
+                </mat-card-header>
+                <hr>
+                <mat-list-item> <strong>Romance:</strong>&nbsp;{{hero.romance}}</mat-list-item>
+                <mat-list-item> <strong>Amigos:</strong>&nbsp;{{hero.friends}},&nbsp;</mat-list-item>
+                <mat-list-item> <strong>Enemigos:</strong>&nbsp;{{hero.enemies}},&nbsp; </mat-list-item>
+            </mat-list>
+            <br>
+
+            <mat-list>
+                <mat-card-header>
+                    <mat-card-title>Personalidad</mat-card-title>
+                </mat-card-header>
+                <hr>
+
+                <!-- Virtudes y defectos  -->
+                <table mat-table [dataSource]="dataSource" class="mat-elevation-z8">                            
+                    <!-- Fort Column -->
+                    <ng-container matColumnDef="Fortalezas">
+                    <th mat-header-cell *matHeaderCellDef style="text-align: center;"> Virtudes </th>                  
+                    <td mat-cell *matCellDef="let element">
+                        <ul>
+                            <li *ngFor="let fort of hero.strengths"> {{fort}} </li>
+                        </ul>
+                    </td>
+                    </ng-container>
+                
+                    <!-- Weak Column -->
+                    <ng-container matColumnDef="Debilidades">
+                    <th mat-header-cell *matHeaderCellDef style="text-align: center;"> Defectos </th>
+                    <td mat-cell *matCellDef="let element"> 
+                        <ul>
+                            <li *ngFor="let weak of hero.weak"> {{weak}} </li>
+                        </ul>
+                    </td>
+                    </ng-container>                              
+                
+                    <tr mat-header-row *matHeaderRowDef=displayedColumns></tr>
+                    <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+                </table>
+            <br>
+            <h2>Deseos: </h2>
+            <ul>
+                <li *ngFor="let wish of hero.wishes">{{wish}}</li>
+            </ul>
+
+            <h2>Miedos: </h2>
+            <ul>
+                <li *ngFor="let fear of hero.fears"> {{fear}} </li>
+            </ul>
+
+            <h2>Motivaciones: </h2>
+            <ul>
+                <li *ngFor="let motiv of hero.motivations"> {{motiv}} </li>
+            </ul>
+
+            <table>
+                <thead>
+                    <th>
+                        Cosas que ama
+                    </th>
+                    <th>
+                        Cosas que odia
+                    </th>
+                </thead>
+                <tbody>
+                    <td>
+                        <ul>
+                            <li *ngFor="let like of hero.likes"> {{like}} </li>
+                        </ul>
+                    </td>
+                    <td>
+                        <ul>
+                            <li *ngFor="let hates of hero.hates"> {{hates}} </li>
+                        </ul>
+                    </td>
+                </tbody>
+            </table>
+
+            <!-- Ama y Odia 
+            <table mat-table [dataSource]="dataSource" class="mat-elevation-z8">                            
+                
+                <ng-container matColumnDef="Cosas que le gustan">
+                <th mat-header-cell *matHeaderCellDef style="text-align: center;"> Cosas que le gustan </th>                  
+                <td mat-cell *matCellDef="let element">
+                    <ul>
+                        <li *ngFor="let likes of hero.likes"> {{likes}} </li>
+                    </ul>
+                </td>
+                </ng-container>
+            
+                
+                <ng-container matColumnDef="Cosas que odia">
+                <th mat-header-cell *matHeaderCellDef style="text-align: center;"> Cosas que odia </th>
+                <td mat-cell *matCellDef="let element"> 
+                    <ul>
+                        <li *ngFor="let hates of hero.hates"> {{hates}} </li>
+                    </ul>
+                </td>
+                </ng-container>                              
+            
+                <tr mat-header-row *matHeaderRowDef=displayedColumns></tr>
+                <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+            </table> -->             
+            </mat-list>
+            <br>
+
+            <!-- Objetivos -->
+            <mat-list>
+                <mat-card-header>
+                    <mat-card-title>Objetivos</mat-card-title>
+                </mat-card-header>
+                <hr>
+                <mat-list-item><strong>¿Cual es su objetivo en la trama?</strong></mat-list-item>
+                <mat-list-item>{{hero.goals}}</mat-list-item>
+                <mat-list-item><strong>¿A qué aspira convertirse?</strong></mat-list-item>                                
+                <mat-list-item>{{hero.aspirations}}</mat-list-item>
+            </mat-list>
+            <br>
+
+            <!-- Desarrollo de personaje -->
+            <mat-list>
+                <mat-card-header>
+                    <mat-card-title>Desarrollo de personaje</mat-card-title>
+                </mat-card-header>
+                <hr>
+                <mat-list-item><strong>¿Que cambios significativos experimentará en su personalidad, valores o metas a lo largo de la trama? </strong></mat-list-item>
+                <mat-list-item>{{hero.changes}}</mat-list-item>
+            </mat-list>
+            <br>           
 
             <button mat-button color="warn" (click)="regresar()">
-                Regresar
+                Regresar a la lista
             </button>
 
         </mat-card-content>

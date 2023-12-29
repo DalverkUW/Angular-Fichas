@@ -12,7 +12,7 @@ import { CardComponent } from './components/card/card.component';
 import { HeroImagePipe } from './pipes/hero-image.pipe';
 import { ReactiveFormsModule } from '@angular/forms';
 import { ConfirmDialogComponent } from './components/confirm-dialog/confirm-dialog.component';
-
+import { MatTableModule } from '@angular/material/table' 
 
 @NgModule({
   declarations: [
@@ -28,6 +28,7 @@ import { ConfirmDialogComponent } from './components/confirm-dialog/confirm-dial
   imports: [
     CommonModule,
     MaterialModule,
+    MatTableModule,
     PersonajesRoutingModule,
     ReactiveFormsModule,
   ]

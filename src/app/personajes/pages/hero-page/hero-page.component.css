@@ -1,0 +1,29 @@
+table {
+    border-collapse: collapse;
+    width: 100%;
+  }
+
+th, td {
+    padding: 15px; /* Ajusta el valor según sea necesario */
+    border: 1px solid #ddd;    
+}
+
+.fList{
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+
+}
+
+th{
+    text-align: center;
+}
+
+ul{
+    list-style-position: outside;
+}
+
+strong{
+    margin: 0;
+    padding: 0;
+}
